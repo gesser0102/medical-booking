@@ -4,92 +4,74 @@ import dayjs from 'dayjs';
 const initialState = {
   doctors: [
     {
-      id: 1,
-      name: 'Dr. João',
-      price: 200.0,
-      schedule: [
-        { date: '2024-12-20', time: '08:00', available: true },
-        { date: '2024-12-20', time: '09:00', available: false },
-        { date: '2024-12-21', time: '10:00', available: true },
-        { date: '2024-12-21', time: '09:00', available: true },
-        { date: '2024-12-21', time: '10:00', available: false },
-        { date: '2024-12-21', time: '09:00', available: true },
-        { date: '2024-12-21', time: '10:00', available: false },
-      ],
+      "id": 1,
+      "name": "Dr. João",
+      "price": 200.0,
+      "schedule": [
+        {"date": "2024-12-17", "time": "08:00", "available": true},
+        {"date": "2024-12-17", "time": "09:00", "available": false},
+        {"date": "2024-12-19", "time": "11:00", "available": true},
+        {"date": "2024-12-20", "time": "09:00", "available": false},
+        {"date": "2024-12-21", "time": "08:00", "available": true},
+        {"date": "2024-12-22", "time": "11:00", "available": false},
+        {"date": "2024-12-24", "time": "09:00", "available": true},
+        {"date": "2024-12-25", "time": "08:00", "available": false},
+        {"date": "2024-12-30", "time": "10:00", "available": true}
+      ]
     },
     {
-      id: 2,
-      name: 'Dra. Maria',
-      price: 250.0,
-      schedule: [
-        { date: '2024-12-20', time: '08:00', available: true },
-        { date: '2024-12-21', time: '09:00', available: true },
-        { date: '2024-12-21', time: '10:00', available: false },
-        { date: '2024-12-21', time: '09:00', available: true },
-        { date: '2024-12-22', time: '10:00', available: false },
-        { date: '2024-12-22', time: '09:00', available: true },
-        { date: '2024-12-23', time: '10:00', available: false },
-      ],
+      "id": 2,
+      "name": "Dra. Maria",
+      "price": 250.0,
+      "schedule": [
+        {"date": "2024-12-17", "time": "09:00", "available": true},
+        {"date": "2024-12-18", "time": "10:00", "available": false},
+        {"date": "2024-12-19", "time": "11:00", "available": true},
+        {"date": "2024-12-20", "time": "08:00", "available": false},
+        {"date": "2024-12-21", "time": "09:00", "available": true},
+        {"date": "2024-12-23", "time": "11:00", "available": false},
+        {"date": "2024-12-26", "time": "08:00", "available": true},
+        {"date": "2024-12-27", "time": "09:00", "available": false},
+        {"date": "2024-12-29", "time": "10:00", "available": true},
+        {"date": "2024-12-31", "time": "11:00", "available": true}
+      ]
     },
     {
-      id: 3,
-      name: 'Dra. Julia',
-      price: 350.0,
-      schedule: [
-        { date: '2024-12-20', time: '08:00', available: true },
-        { date: '2024-12-21', time: '09:00', available: true },
-        { date: '2024-12-21', time: '10:00', available: false },
-        { date: '2024-12-22', time: '09:00', available: true },
-        { date: '2024-12-23', time: '10:00', available: false },
-        { date: '2024-12-23', time: '09:00', available: true },
-        { date: '2024-12-24', time: '10:00', available: false },
-      ],
+      "id": 3,
+      "name": "Dra. Julia",
+      "price": 350.0,
+      "schedule": [
+        {"date": "2024-12-17", "time": "08:00", "available": false},
+        {"date": "2024-12-18", "time": "09:00", "available": true},
+        {"date": "2024-12-19", "time": "10:00", "available": true},
+        {"date": "2024-12-21", "time": "08:00", "available": false},
+        {"date": "2024-12-22", "time": "09:00", "available": true},
+        {"date": "2024-12-23", "time": "10:00", "available": false},
+        {"date": "2024-12-25", "time": "09:00", "available": true},
+        {"date": "2024-12-27", "time": "08:00", "available": true},
+        {"date": "2024-12-28", "time": "10:00", "available": true},
+        {"date": "2024-12-30", "time": "11:00", "available": false}
+      ]
     },
     {
-      id: 4,
-      name: 'Dr. Paulo',
-      price: 280.0,
-      schedule: [
-        { date: '2024-12-20', time: '08:00', available: true },
-        { date: '2024-12-21', time: '09:00', available: true },
-        { date: '2024-12-21', time: '10:00', available: false },
-        { date: '2024-12-23', time: '09:00', available: true },
-        { date: '2024-12-23', time: '10:00', available: false },
-        { date: '2024-12-23', time: '09:00', available: true },
-        { date: '2024-12-26', time: '10:00', available: false },
-      ],
-    },
+      "id": 4,
+      "name": "Dr. Paulo",
+      "price": 280.0,
+      "schedule": [
+        {"date": "2024-12-17", "time": "09:00", "available": true},
+        {"date": "2024-12-18", "time": "08:00", "available": false},
+        {"date": "2024-12-19", "time": "10:00", "available": true},
+        {"date": "2024-12-21", "time": "09:00", "available": true},
+        {"date": "2024-12-23", "time": "11:00", "available": false},
+        {"date": "2024-12-25", "time": "08:00", "available": true},
+        {"date": "2024-12-26", "time": "09:00", "available": true},
+        {"date": "2024-12-28", "time": "11:00", "available": true},
+        {"date": "2024-12-29", "time": "08:00", "available": false},
+        {"date": "2024-12-31", "time": "10:00", "available": true}
+      ]
+    }
   ],
-  appointments: [
-    {
-      doctorId: 1,
-      doctorName: 'Dr. João',
-      time: '08:00',
-      date: dayjs().format('YYYY-MM-DD'), // Hoje
-      patient: { name: 'Ana Silva', cpf: '123.456.789-00' },
-    },
-    {
-      doctorId: 2,
-      doctorName: 'Dra. Maria',
-      time: '09:00',
-      date: dayjs().format('YYYY-MM-DD'), // Hoje
-      patient: { name: 'Carlos Souza', cpf: '987.654.321-00' },
-    },
-    {
-      doctorId: 4,
-      doctorName: 'Dr. Paulo',
-      time: '10:00',
-      date: dayjs().format('YYYY-MM-DD'), // Hoje
-      patient: { name: 'André Souza', cpf: '487.664.321-00' },
-    },
-    {
-      doctorId: 3,
-      doctorName: 'Dr. Julia',
-      time: '11:00',
-      date: dayjs().format('YYYY-MM-DD'), // Hoje
-      patient: { name: 'Carlos Souza', cpf: '982.454.421-70' },
-    },
-  ],
+  appointments: [],
   modalOpen: false,
   confirmModalOpen: false,
   selectedSlot: null,
@@ -117,8 +99,22 @@ const scheduleSlice = createSlice({
       state.confirmationData = action.payload;
     },
     bookAppointment(state, action) {
-      const newAppointment = action.payload;
+      const newAppointment = {
+        ...action.payload,
+        status: action.payload.status || 'Pendente',
+      };
+    
       state.appointments.push(newAppointment);
+    },
+    updateAppointment(state, action) {
+      const { id, updatedData } = action.payload;
+      const appointmentIndex = state.appointments.findIndex((a) => a.id === id);
+      if (appointmentIndex > -1) {
+        state.appointments[appointmentIndex] = {
+          ...state.appointments[appointmentIndex],
+          ...updatedData,
+        };
+      }
     },
   },
 });
@@ -130,6 +126,7 @@ export const {
   setSelectedDate,
   setConfirmationData,
   bookAppointment,
+  updateAppointment,
 } = scheduleSlice.actions;
 
 export default scheduleSlice.reducer;
