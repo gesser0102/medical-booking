@@ -72,42 +72,64 @@ const ScheduleModal = () => {
     dispatch(toggleConfirmModal(true));
   };
 
+  const handleClose = (e) => {
+    // Fecha o modal se o clique for no container externo
+    if (e.target.id === 'modalOverlay') {
+      dispatch(toggleModal(false));
+    }
+  };
+
   if (!modalOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-2.5">
-      <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+    <div
+      id="modalOverlay"
+      onClick={handleClose}
+      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-2.5"
+    >
+      <div
+        onClick={(e) => e.stopPropagation()} // Evita fechar ao clicar no conteúdo do modal
+        className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md max-h-screen overflow-auto"
+      >
         <h2 className="text-lg font-bold mb-4">Agendar Consulta</h2>
         <p className="text-gray-600 mb-2">
           <strong>Horário:</strong> {selectedSlot?.time}
         </p>
-        <p className="text-gray-600 mb-4">
+        <p className="text-gray-600 mb-2">
           <strong>Valor da Consulta:</strong> R$ {selectedDoctor?.price?.toFixed(2)}
         </p>
+        <p className="text-gray-600 mb-2">
+          <strong>Médico:</strong> {selectedDoctor?.name}
+        </p>
         <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label className="text-gray-600">Nome Completo:</label>
-            <input
-              name="name"
-              type="text"
-              placeholder="Nome Completo"
-              required
-              className="w-full p-2 border border-gray-300 rounded-md"
-            />
+          {/* Nome e CPF */}
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="text-gray-600">Nome Completo:</label>
+              <input
+                name="name"
+                type="text"
+                placeholder="Nome Completo"
+                required
+                className="w-full p-2 border border-gray-300 rounded-md"
+              />
+            </div>
+            <div>
+              <label className="text-gray-600">CPF:</label>
+              <input
+                name="cpf"
+                type="text"
+                placeholder="111.222.333-44"
+                value={cpf}
+                onInput={handleCpfInput}
+                maxLength={14}
+                required
+                className="w-full p-2 border border-gray-300 rounded-md"
+              />
+            </div>
           </div>
-          <div>
-            <label className="text-gray-600">CPF:</label>
-            <input
-              name="cpf"
-              type="text"
-              placeholder="111.222.333-44"
-              value={cpf}
-              onInput={handleCpfInput}
-              maxLength={14}
-              required
-              className="w-full p-2 border border-gray-300 rounded-md"
-            />
-          </div>
+
+          {/* Data */}
           <div>
             <label className="text-gray-600">Data:</label>
             <input
@@ -118,6 +140,8 @@ const ScheduleModal = () => {
               className="w-full p-2 border border-gray-300 rounded-md"
             />
           </div>
+
+          {/* Rua */}
           <div>
             <label className="text-gray-600">Rua:</label>
             <input
@@ -128,8 +152,10 @@ const ScheduleModal = () => {
               className="w-full p-2 border border-gray-300 rounded-md"
             />
           </div>
-          <div className="flex space-x-4">
-            <div className="w-1/2">
+
+          {/* Número e Complemento */}
+          <div className="grid grid-cols-2 gap-4">
+            <div>
               <label className="text-gray-600">Número:</label>
               <input
                 name="numero"
@@ -139,7 +165,7 @@ const ScheduleModal = () => {
                 className="w-full p-2 border border-gray-300 rounded-md"
               />
             </div>
-            <div className="w-1/2">
+            <div>
               <label className="text-gray-600">Complemento:</label>
               <input
                 name="complemento"
@@ -149,26 +175,32 @@ const ScheduleModal = () => {
               />
             </div>
           </div>
-          <div>
-            <label className="text-gray-600">Bairro:</label>
-            <input
-              name="bairro"
-              type="text"
-              placeholder="Bairro"
-              required
-              className="w-full p-2 border border-gray-300 rounded-md"
-            />
+
+          {/* Cidade e Bairro */}
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="text-gray-600">Cidade:</label>
+              <input
+                name="cidade"
+                type="text"
+                placeholder="Cidade"
+                required
+                className="w-full p-2 border border-gray-300 rounded-md"
+              />
+            </div>
+            <div>
+              <label className="text-gray-600">Bairro:</label>
+              <input
+                name="bairro"
+                type="text"
+                placeholder="Bairro"
+                required
+                className="w-full p-2 border border-gray-300 rounded-md"
+              />
+            </div>
           </div>
-          <div>
-            <label className="text-gray-600">Cidade:</label>
-            <input
-              name="cidade"
-              type="text"
-              placeholder="Cidade"
-              required
-              className="w-full p-2 border border-gray-300 rounded-md"
-            />
-          </div>
+
+          {/* CEP */}
           <div>
             <label className="text-gray-600">CEP:</label>
             <input
@@ -182,6 +214,8 @@ const ScheduleModal = () => {
               className="w-full p-2 border border-gray-300 rounded-md"
             />
           </div>
+
+          {/* Botões */}
           <div className="flex justify-between items-center">
             <button
               type="button"

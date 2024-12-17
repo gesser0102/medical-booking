@@ -1,15 +1,16 @@
 import { useSelector } from 'react-redux';
-import { selectAppointmentsForDay } from '../store/selectors';
+import { selectTodayAppointments } from '../store/selectors';
 
 const DailyAgenda = () => {
-  const appointments = useSelector(selectAppointmentsForDay);
+  const todayAppointments = useSelector(selectTodayAppointments);
 
   return (
     <div className="bg-white p-4 shadow-md rounded-lg">
       <h2 className="text-lg font-bold mb-4">Agenda do Dia</h2>
-      {appointments.length > 0 ? (
+
+      {todayAppointments.length > 0 ? (
         <ul className="space-y-2">
-          {appointments.map((appointment, index) => (
+          {todayAppointments.map((appointment, index) => (
             <li
               key={index}
               className="p-2 border-b border-gray-200 flex justify-between items-center"
@@ -29,7 +30,7 @@ const DailyAgenda = () => {
           ))}
         </ul>
       ) : (
-        <p className="text-gray-500">Nenhuma consulta agendada para hoje.</p>
+        <p className="text-gray-500 text-center">Nenhuma consulta agendada para hoje.</p>
       )}
     </div>
   );

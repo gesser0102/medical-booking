@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { bookAppointment } from '../store/scheduleSlice';
+import { toast } from 'react-toastify';
 
 const ScheduleForm = () => {
   const doctors = useSelector((state) => state.schedule.doctors);
@@ -19,7 +20,7 @@ const ScheduleForm = () => {
     };
 
     dispatch(bookAppointment({ doctorId, time, patient }));
-    alert('Agendamento realizado com sucesso!');
+    toast.success('Agendamento realizado com sucesso!');
     e.target.reset();
   };
 
