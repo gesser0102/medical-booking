@@ -1,5 +1,5 @@
 import StatsCard from '../components/StatsCard';
-import AgendaCard from '../components/AgendaCard';
+import DailyAgenda from '../components/DailyAgenda';
 import Notifications from '../components/Notifications';
 
 const Dashboard = () => {
@@ -10,10 +10,9 @@ const Dashboard = () => {
       {/* Dados Estatísticos */}
       <StatsCard />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+      <div className="grid grid-cols-1 md:grid-cols-1 gap-4 mt-6">
         {/* Agenda do Dia */}
-        <AgendaCard />
-
+        <DailyAgenda />
         {/* Avisos e Lembretes */}
         <Notifications />
       </div>
