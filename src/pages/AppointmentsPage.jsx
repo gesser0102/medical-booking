@@ -107,7 +107,7 @@ const AppointmentsPage = () => {
   return (
     <div className="p-2 sm:p-4 bg-gray-100 min-h-screen">
       <h1 className="text-base sm:text-2xl font-bold mb-2 sm:mb-4">Consulta de Agendamentos</h1>
-      <div className="bg-white p-2 sm:p-4 rounded-lg shadow-md">
+      <div className="bg-white p-2 w-8/12 sm:p-4 rounded-lg shadow-md">
         {appointments.length > 0 ? (
           <div className="overflow-x-auto max-w-full">
             <table className="w-full table-auto text-xs sm:text-sm whitespace-nowrap">
